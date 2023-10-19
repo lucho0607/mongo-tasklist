@@ -1,1 +1,26 @@
+    #¿Qué es mi producto y para que sirve?
+    Este producto lo podemos usar como forma de administrar y escalar una base de datos de manera efectiva, garantizando
+     la alta disponibilidad, la tolerancia a fallos y la capacidad de recuperación. Las funciones que ofrece dependen de 
+     la configuración específica del clúster, como réplicas, sharding y geodistribución, y se adaptan a las necesidades
+      de tu aplicación y negocio.
     
+    ¿Cuáles son las funcionalidades más importantes y porque los usuarios las usarían?
+
+    1.Escalabilidad horizontal: Un clúster permite distribuir la carga de trabajo a través de varios nodos, lo que
+     facilita la escalabilidad horizontal. Puedes agregar nuevos servidores de bases de datos al clúster según sea 
+     necesario para manejar un mayor volumen de datos o tráfico.
+
+2. Alta disponibilidad: MongoDB proporciona la capacidad de replicar datos en varios nodos (replica sets) en un clúster.
+ Esto garantiza que, en caso de que un nodo falle, otro pueda asumir automáticamente la función de servidor principal 
+ (primario), lo que minimiza la interrupción del servicio.
+
+3. Tolerancia a fallos: Con la configuración adecuada, MongoDB puede proporcionar tolerancia a fallos al replicar datos
+ en múltiples nodos. Si un nodo falla o se desconecta, los datos siguen estando disponibles en otros nodos.
+
+4. Respaldo y recuperación de datos: Los clústeres permiten realizar copias de seguridad de los datos y recuperarlos
+ en caso de pérdida de información o desastres. Esto es fundamental para la integridad de los datos y la continuidad 
+ del negocio.
+
+5. Distribución geográfica: MongoDB ofrece la posibilidad de crear clústeres geográficamente distribuidos 
+(clusters globales). Esto es útil para aplicaciones que necesitan redundancia en diferentes regiones geográficas o 
+que buscan mejorar la latencia para los usuarios ubicados en diferentes partes del mundo.
