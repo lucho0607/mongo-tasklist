@@ -1,0 +1,88 @@
+const connectDB = require("./src/db");
+
+const CRUD = {
+  createUser,
+  findUsers,
+  findUserById,
+  deleteUserById,
+  updateUser,
+};
+
+async function createUser(user) {
+  try {
+    const db = await connectDB();
+    const result = await db.collection("users").insertOne(user);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function findUsers() {
+  try {
+    const db = await connectDB();
+    const users = await db.collection("users").find().toArray();
+    return users;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function findUserById(id) {
+  try {
+    const db = await connectDB();
+    const user = await db.collection("users").findOne({ _id: id });
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function deleteUserById(id) {
+  try {
+    const db = await connectDB();
+    const result = await db.collection("users").deleteOne({ _id: id });
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updateUser(id, data) {
+  try {
+    const db = await connectDB();
+    const updateData = { $set: { ...data } };
+    const result = await db
+      .collection("users")
+      .updateOne({ _id: id }, updateData);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = CRUD;
+
+// MONGO_URI=mongodb://127.0.0.1:27017
+
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
+
+const url = process.env.MONGO_URI;
+const client = new MongoClient(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const dbName = "test";
+async function connectDB() {
+  try {
+    await client.connect();
+    console.log("Connected to the database");
+    return client.db(dbName);
+  } catch (error) {
+    console.error("Error connecting to the database", error);
+    throw error;
+  }
+}
+module.exports = connectDB;

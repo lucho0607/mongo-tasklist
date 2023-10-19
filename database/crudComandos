@@ -1,0 +1,9 @@
+codigo manejar databse en mongo compass
+
+1. Create: para crear un nuevo documento usaría el comando insertOne() para un solo documento nuevo o insertMany() para varios.
+
+2. Read: para leer o buscar en el documento usaría el comando find()
+
+3. Update: para actualizar un documento o el campo de uno usaría en comando updateOne() para varios usaría updateMnay() agregandole el comando $set para insertarle al campo la nueva informacion.
+
+4. Delete: para borrar algo en el documento usaría los comandos deleteOne() para un documento y deleteMany() para varios.
